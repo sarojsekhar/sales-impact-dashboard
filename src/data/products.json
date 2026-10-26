@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Earbuds",
+    "category": "Electronics",
+    "salesImpacted": 12.5,
+    "averageSales": 78.4,
+    "notSold": 8.2
+  },
+  {
+    "id": 2,
+    "name": "Smart Watch",
+    "category": "Electronics",
+    "salesImpacted": 45.8,
+    "averageSales": 52.3,
+    "notSold": 30.1
+  },
+  {
+    "id": 3,
+    "name": "Bluetooth Speaker",
+    "category": "Electronics",
+    "salesImpacted": 72.6,
+    "averageSales": 25.9,
+    "notSold": 64.0
+  },
+  {
+    "id": 4,
+    "name": "Air Fryer",
+    "category": "Home & Kitchen",
+    "salesImpacted": 33.33,
+    "averageSales": 66.67,
+    "notSold": 15.5
+  },
+  {
+    "id": 5,
+    "name": "Coffee Maker",
+    "category": "Home & Kitchen",
+    "salesImpacted": 88.2,
+    "averageSales": 18.7,
+    "notSold": 79.3
+  },
+  {
+    "id": 6,
+    "name": "Non-stick Cookware Set",
+    "category": "Home & Kitchen",
+    "salesImpacted": 5.4,
+    "averageSales": 61.2,
+    "notSold": 42.6
+  },
+  {
+    "id": 7,
+    "name": "Running Shoes",
+    "category": "Sports",
+    "salesImpacted": 54.1,
+    "averageSales": 83.5,
+    "notSold": 22.8
+  },
+  {
+    "id": 8,
+    "name": "Yoga Mat",
+    "category": "Sports",
+    "salesImpacted": 0,
+    "averageSales": 47.9,
+    "notSold": 33.32
+  },
+  {
+    "id": 9,
+    "name": "Fitness Tracker Band",
+    "category": "Sports",
+    "salesImpacted": 66.66,
+    "averageSales": 12.4,
+    "notSold": 91.7
+  },
+  {
+    "id": 10,
+    "name": "Denim Jacket",
+    "category": "Apparel",
+    "salesImpacted": 100,
+    "averageSales": 3.6,
+    "notSold": 100
+  },
+  {
+    "id": 11,
+    "name": "Cotton T-Shirt",
+    "category": "Apparel",
+    "salesImpacted": 27.4,
+    "averageSales": 95.1,
+    "notSold": 5.0
+  },
+  {
+    "id": 12,
+    "name": "Winter Hoodie",
+    "category": "Apparel",
+    "salesImpacted": 61.9,
+    "averageSales": 38.2,
+    "notSold": 70.4
+  },
+  {
+    "id": 13,
+    "name": "Face Moisturizer",
+    "category": "Beauty",
+    "salesImpacted": 19.8,
+    "averageSales": 71.6,
+    "notSold": 50.0
+  },
+  {
+    "id": 14,
+    "name": "Hair Dryer",
+    "category": "Beauty",
+    "salesImpacted": 79.1,
+    "averageSales": 29.3,
+    "notSold": 58.8
+  },
+  {
+    "id": 15,
+    "name": "Perfume Gift Set",
+    "category": "Beauty",
+    "salesImpacted": 40.2,
+    "averageSales": 0,
+    "notSold": 85.9
+  }
+]
