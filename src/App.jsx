@@ -1,21 +1,38 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import products from "./data/products.json";
-// import { getMetricLabel } from "./constants/metrics";
 import MetricSelector from "./components/right/MetricSelector";
 import ColorLegend from "./components/right/ColorLegend";
 import ProductList from "./components/middle/ProductList";
+import ProductDetails from "./components/left/ProductDetails";
 
 function App() {
-  // Which metric is selected in the dropdown: null = none (neutral gray cards)
+  // ── Shared state (lifted up to App) ──────────────────────────────
   const [selectedMetric, setSelectedMetric] = useState(null);
-
-  // Which product was clicked: null = none ("Select a product")
   const [selectedProductId, setSelectedProductId] = useState(null);
 
   // ── Derived value ────────────────────────────────────────────────
-  // We store only the id and look up the full product from it.
   const selectedProduct =
     products.find((product) => product.id === selectedProductId) ?? null;
+
+  // A reference to the left column's <section>, so we can scroll to it.
+  const detailsRef = useRef(null);
+
+  function handleSelectProduct(productId) {
+    setSelectedProductId(productId);
+
+    // On desktop the details are already visible, so only scroll on smaller screens.
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+    if (isDesktop) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    detailsRef.current?.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "start",
+    });
+  }
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900">
@@ -63,24 +80,20 @@ function App() {
               products={products}
               selectedMetric={selectedMetric}
               selectedProductId={selectedProductId}
-              onSelectProduct={setSelectedProductId}
+              onSelectProduct={handleSelectProduct}
             />
           </section>
 
           {/* LEFT column: last in the code, so last on mobile */}
           <section
+            ref={detailsRef}
             aria-labelledby="details-heading"
-            className="rounded-xl bg-white p-4 shadow-sm lg:sticky lg:top-6 lg:order-1 lg:col-span-3 lg:self-start"
+            className="scroll-mt-4 rounded-xl bg-white p-4 shadow-sm lg:sticky lg:top-6 lg:order-1 lg:col-span-3 lg:self-start"
           >
             <h2 id="details-heading" className="text-lg font-semibold">
               Product Details
             </h2>
-            <div className="mt-3 rounded-lg border-2 border-dashed border-gray-300 p-4 text-sm text-gray-500">
-              Table + metric cards go here (Step 7).
-              <br />
-              Selected product:{" "}
-              <strong>{selectedProduct ? selectedProduct.name : "none"}</strong>
-            </div>
+            <ProductDetails product={selectedProduct} />
           </section>
         </div>
       </main>
