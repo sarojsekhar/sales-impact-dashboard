@@ -1,11 +1,11 @@
 import { useState } from "react";
 import products from "./data/products.json";
-import { getMetricLabel } from "./constants/metrics";
+// import { getMetricLabel } from "./constants/metrics";
 import MetricSelector from "./components/right/MetricSelector";
 import ColorLegend from "./components/right/ColorLegend";
+import ProductList from "./components/middle/ProductList";
 
 function App() {
-  // ── Shared state (lifted up to App) ──────────────────────────────
   // Which metric is selected in the dropdown: null = none (neutral gray cards)
   const [selectedMetric, setSelectedMetric] = useState(null);
 
@@ -59,18 +59,12 @@ function App() {
             <h2 id="products-heading" className="text-lg font-semibold">
               Products
             </h2>
-            <div className="mt-3 rounded-lg border-2 border-dashed border-gray-300 p-4 text-sm text-gray-500">
-              Product grid + pagination go here (Step 6).
-              <br />
-              Products available: <strong>{products.length}</strong>
-              <br />
-              Coloring by:{" "}
-              <strong>
-                {selectedMetric
-                  ? getMetricLabel(selectedMetric)
-                  : "none (gray)"}
-              </strong>
-            </div>
+            <ProductList
+              products={products}
+              selectedMetric={selectedMetric}
+              selectedProductId={selectedProductId}
+              onSelectProduct={setSelectedProductId}
+            />
           </section>
 
           {/* LEFT column: last in the code, so last on mobile */}
