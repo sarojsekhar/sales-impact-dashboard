@@ -1,6 +1,8 @@
 import { useState } from "react";
 import products from "./data/products.json";
 import { getMetricLabel } from "./constants/metrics";
+import MetricSelector from "./components/right/MetricSelector";
+import ColorLegend from "./components/right/ColorLegend";
 
 function App() {
   // ── Shared state (lifted up to App) ──────────────────────────────
@@ -40,13 +42,12 @@ function App() {
             <h2 id="metric-heading" className="text-lg font-semibold">
               Metric
             </h2>
-            <div className="mt-3 rounded-lg border-2 border-dashed border-gray-300 p-4 text-sm text-gray-500">
-              Dropdown + color legend go here (Step 5).
-              <br />
-              Selected metric:{" "}
-              <strong>
-                {selectedMetric ? getMetricLabel(selectedMetric) : "none"}
-              </strong>
+            <div className="mt-3">
+              <MetricSelector
+                selectedMetric={selectedMetric}
+                onMetricChange={setSelectedMetric}
+              />
+              <ColorLegend />
             </div>
           </section>
 
@@ -62,6 +63,13 @@ function App() {
               Product grid + pagination go here (Step 6).
               <br />
               Products available: <strong>{products.length}</strong>
+              <br />
+              Coloring by:{" "}
+              <strong>
+                {selectedMetric
+                  ? getMetricLabel(selectedMetric)
+                  : "none (gray)"}
+              </strong>
             </div>
           </section>
 
